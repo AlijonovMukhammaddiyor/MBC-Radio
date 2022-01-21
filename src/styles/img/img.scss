@@ -1,0 +1,13 @@
+@import "../general/general";
+
+.program__image {
+  width: 100vw;
+  img {
+    width: 100vw;
+    height: auto;
+
+    @media (min-width: 1542px) {
+      display: none;
+    }
+  }
+}

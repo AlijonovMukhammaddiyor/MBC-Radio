@@ -1,0 +1,137 @@
+*,
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+}
+
+.program__time__container {
+  width: 100vw;
+  height: 20px;
+  background-color: #678dbe;
+}
+
+.program__time__container .progress__bar {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+  font-family: "Roboto";
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.program__time__container .progress__bar p {
+  font-size: 10px;
+  color: #d4e0f1;
+}
+
+.program__time__container .progress__bar [type="range"] {
+  --range: calc(var(--max) - var(--min));
+  --ratio: calc((var(--val) - var(--min)) / var(--range));
+  --sx: calc(0.5 *13px + var(--ratio) * (100% - 13px));
+  padding: 0;
+  border-radius: 5px;
+  width: 62%;
+  height: 5px;
+  background: #254373;
+}
+
+.program__time__container .progress__bar [type="range"], .program__time__container .progress__bar [type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+.program__time__container .progress__bar [type="range"]::-webkit-slider-runnable-track {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: none;
+  width: 62%;
+  height: 5px;
+  border-radius: 5px;
+  background: #254373;
+}
+
+.js .program__time__container .progress__bar [type="range"]::-webkit-slider-runnable-track {
+  background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#ccc)) 0/var(--sx) 100% no-repeat #254373;
+  background: linear-gradient(#ccc, #ccc) 0/var(--sx) 100% no-repeat #254373;
+}
+
+.program__time__container .progress__bar [type="range"]::-moz-range-track {
+  box-sizing: border-box;
+  border: none;
+  width: 62%;
+  height: 5px;
+  border-radius: 5px;
+  background: #254373;
+}
+
+.program__time__container .progress__bar [type="range"]::-ms-track {
+  box-sizing: border-box;
+  border: none;
+  width: 62%;
+  height: 5px;
+  border-radius: 5px;
+  background: #254373;
+}
+
+.program__time__container .progress__bar [type="range"]::-moz-range-progress {
+  height: 5px;
+  background: #ccc;
+}
+
+.program__time__container .progress__bar [type="range"]::-ms-fill-lower {
+  height: 5px;
+  background: #ccc;
+}
+
+.program__time__container .progress__bar [type="range"]::-webkit-slider-thumb {
+  margin-top: -4px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: none;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: url("../../assets/audioplayer/player_head_new.png");
+}
+
+.program__time__container .progress__bar [type="range"]::-moz-range-thumb {
+  box-sizing: border-box;
+  border: none;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: url("../../assets/audioplayer/player_head_new.png");
+}
+
+.program__time__container .progress__bar [type="range"]::-ms-thumb {
+  margin-top: 0;
+  box-sizing: border-box;
+  border: none;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: url("../../assets/audioplayer/player_head_new.png");
+}
+
+.program__time__container .progress__bar [type="range"]::-ms-tooltip {
+  display: none;
+}
+/*# sourceMappingURL=time.css.map */

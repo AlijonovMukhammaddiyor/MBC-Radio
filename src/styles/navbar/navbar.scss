@@ -1,0 +1,67 @@
+@import "../general/general";
+
+.mini__navbar__container {
+  width: 100vw;
+  background: url("../../assets/mini/bg_top.png") repeat-x;
+  height: 34px;
+  @include flex();
+  overflow: hidden;
+
+  .mini__navbar__logo {
+    margin-left: 16px;
+    .logo__icon {
+      width: 38px;
+      height: 24px;
+
+      border: none;
+      background: url("../../assets/logo_top_r_v2.png") no-repeat;
+      background-size: cover;
+      margin-top: 6px;
+    }
+  }
+
+  .mini__navbar__page-control {
+    @include flex($gap: 4px);
+    .page-point {
+      background: url("../../assets/page_point_default.png");
+      width: 7px;
+      height: 7px;
+    }
+
+    .dot {
+      background: url("../../assets/page_point_white.png");
+    }
+  }
+
+  .mini__navbar__equalizer {
+    margin-right: 12px;
+    @include flex($gap: 5px);
+    .nav__btn {
+      height: 16px;
+      width: 16px;
+      background-size: cover;
+      border: none;
+    }
+
+    .btn-fb {
+      background: url("../../assets/mini/btn_facebook_n.png");
+
+      &:hover {
+        background: url("../../assets/mini/btn_facebook_p.png");
+      }
+    }
+
+    .btn-tw {
+      background: url("../../assets//mini/btn_twitter_n.png");
+
+      &:hover {
+        background: url("../../assets//mini/btn_twitter_p.png");
+      }
+    }
+
+    .equalizer {
+      width: 23px;
+      height: 13px;
+    }
+  }
+}

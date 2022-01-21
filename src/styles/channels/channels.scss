@@ -1,0 +1,48 @@
+@import "../general/general";
+
+.mini__channels__container {
+  height: 33px;
+  width: 100vw;
+  background: url("../../assets//mini/channel_bg_new.png") repeat-x;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .channel__pointer {
+    position: absolute;
+    height: 100%;
+    width: 3px;
+    background: url("../../assets/mini/channel_point_new.png");
+    background-size: cover;
+    right: 50%;
+    overflow: hidden;
+  }
+  .channel__navi {
+    width: 20rem;
+    margin: auto;
+    @include flex();
+    @include animation($time: 0.5s);
+    .navi__btn {
+      background: transparent;
+      color: white;
+      border: none;
+      width: 78px;
+    }
+  }
+
+  .channel__navi.mfm {
+    transform: translateX(37px);
+  }
+
+  .channel__navi.sfm {
+    transform: translateX(120px);
+  }
+
+  .channel__navi.chm {
+    transform: translateX(-40px);
+  }
+
+  .channel__navi.podcast {
+    transform: translateX(-120px);
+  }
+}

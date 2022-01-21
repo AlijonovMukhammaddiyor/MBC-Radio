@@ -1,0 +1,27 @@
+*,
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+}
+
+.program__image {
+  width: 100vw;
+}
+
+.program__image img {
+  width: 100vw;
+  height: auto;
+}
+
+@media (min-width: 1542px) {
+  .program__image img {
+    display: none;
+  }
+}
+/*# sourceMappingURL=img.css.map */

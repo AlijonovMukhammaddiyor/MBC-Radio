@@ -1,0 +1,86 @@
+*,
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+}
+
+.mini__message__container .mini__podcast__container {
+  padding: 1rem;
+  height: calc(100vh - 160px);
+  overflow: scroll;
+  scroll-behavior: smooth;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: auto;
+  font-family: "Roboto";
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.mini__message__container .mini__podcast__container .each__podcast {
+  margin-bottom: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+  font-family: "Roboto";
+  width: 22.4rem;
+  min-width: 22.4rem;
+  max-width: 22.4rem;
+}
+
+.mini__message__container .mini__podcast__container .each__podcast:hover img {
+  -webkit-box-shadow: 0px 0px 5px 5px lightgray;
+          box-shadow: 0px 0px 5px 5px lightgray;
+}
+
+.mini__message__container .mini__podcast__container .each__podcast img {
+  width: 108px;
+  height: 60px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border: 1px solid lightgray;
+}
+
+.mini__message__container .mini__podcast__container .each__podcast .text__area .title {
+  letter-spacing: -0.5px;
+  font-size: 11px;
+  font-weight: bold;
+  color: #666666;
+  margin-bottom: 3px;
+}
+
+.mini__message__container .mini__podcast__container .each__podcast .text__area .subtitle {
+  font-size: 11px;
+  color: gray;
+}
+/*# sourceMappingURL=message.css.map */

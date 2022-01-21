@@ -1,0 +1,214 @@
+@import "../general/general";
+
+.mini__player__container {
+  background-color: #4674b0;
+  width: 100vw;
+  overflow: hidden;
+
+  @include flex($direc: column, $gap: 0, $just: space-between);
+
+  .audio__controls {
+    width: 100%;
+    @include flex();
+    height: 56px;
+
+    .left {
+      @include flex($just: flex-start);
+      .play__pause {
+        .play__btn {
+          background: url("../../assets/audioplayer/btn_play_new.png") no-repeat;
+          background-size: cover;
+          width: 45px;
+          height: 46px;
+          border: none;
+          outline: none;
+          margin: 6px 10px 0 16px;
+        }
+
+        .play__btn.pause {
+          background: url("../../assets/audioplayer/btn_stop_new.png");
+        }
+      }
+
+      .live__sign {
+        @include flex($direc: column, $just: center, $gap: 5px);
+        .live {
+          background: url("../../assets/audioplayer/icon_live_new.png");
+          background-size: cover;
+          width: 33px;
+          height: 16px;
+        }
+
+        .music {
+          background: url("../../assets/audioplayer/icon_music_new.png");
+          background-size: cover;
+          width: 33px;
+          height: 16px;
+        }
+      }
+
+      .audio__details {
+        @include flex($direc: column, $just: center, $gap: 5px);
+        margin-left: 10px;
+        div {
+          text-align: left;
+          width: 100%;
+          font-size: 12px;
+          font-weight: bold;
+          font-family: "Roboto";
+          color: rgb(178, 206, 244);
+        }
+
+        .podcast__title {
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+
+        .song__name {
+          // margin-bottom: 3px;
+          font-size: 11px;
+          font-weight: normal;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+      }
+    }
+
+    .right {
+      margin-right: 11px;
+      .sound {
+        @include flex($just: center, $gap: 6px);
+        .sound__btn {
+          background: url("../../assets/audioplayer/btn_snd_on_new.png")
+            no-repeat;
+          background-size: cover;
+          width: 16px;
+          height: 13px;
+          border: none;
+          outline: none;
+          margin-top: 30px;
+        }
+
+        .sound__btn.off {
+          background: url("../../assets/audioplayer/btn_snd_off_new.png");
+        }
+
+        .volume__slider {
+          height: 48px;
+          width: 14px;
+          position: relative;
+          //   overflow: hidden;
+          @include flex($just: center);
+          $track-w: 42px;
+          $track-h: 5px;
+          $thumb-d: 13px;
+          $track-c: #254373;
+          $filll-c: #ccc;
+
+          @mixin track($fill: 0) {
+            box-sizing: border-box;
+            border: none;
+            border-radius: 5px;
+            transform: rotate(-90deg);
+            width: $track-w;
+            height: $track-h;
+            background: $track-c;
+
+            @if $fill == 1 {
+              .js & {
+                background: linear-gradient($filll-c, $filll-c)
+                  0 /
+                  var(--sx)
+                  100%
+                  no-repeat
+                  $track-c;
+              }
+            }
+          }
+
+          @mixin fill() {
+            height: $track-h;
+            background: $filll-c;
+          }
+
+          @mixin thumb() {
+            box-sizing: border-box;
+            border: none;
+            width: $thumb-d;
+            height: $thumb-d;
+            border-radius: 50%;
+            background: url("../../assets/audioplayer/player_head_new.png");
+            transform: rotate(90deg);
+            // margin-bottom: 1px;
+          }
+
+          [type="range"] {
+            &,
+            &::-webkit-slider-thumb {
+              -webkit-appearance: none;
+            }
+
+            --range: calc(var(--max) - var(--min));
+            --ratio: calc((var(--val) - var(--min)) / var(--range));
+            --sx: calc(0.5 *#{$thumb-d} + var(--ratio) * (100% - #{$thumb-d}));
+            margin: 0;
+            padding: 0;
+            width: $track-w;
+            height: $thumb-d;
+            background: #4674b0;
+            font: 1em/1 arial, sans-serif;
+
+            &::-webkit-slider-runnable-track {
+              @include track(1);
+            }
+            &::-moz-range-track {
+              @include track;
+            }
+            &::-ms-track {
+              @include track;
+            }
+
+            &::-moz-range-progress {
+              @include fill;
+            }
+            &::-ms-fill-lower {
+              @include fill;
+            }
+
+            &::-webkit-slider-thumb {
+              margin-top: 0.565 * ($track-h - $thumb-d);
+              @include thumb;
+            }
+            &::-moz-range-thumb {
+              @include thumb;
+            }
+            &::-ms-thumb {
+              margin-top: 0;
+              @include thumb;
+            }
+
+            &::-ms-tooltip {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .audio {
+    grid-column: 1/8;
+    height: 20px;
+    width: 100vw;
+    background-color: #678dbe;
+    display: none;
+  }
+
+  .program__picture {
+    width: 100vw;
+    overflow: hidden;
+    height: auto;
+  }
+}

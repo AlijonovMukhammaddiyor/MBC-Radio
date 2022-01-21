@@ -1,0 +1,14 @@
+@import "../general/general";
+
+.mini__topbar__container {
+	width: 100vw;
+	height: min-content;
+	overflow: hidden;
+
+	.line {
+		border: 0;
+		height: 0.8px;
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+		box-shadow: 0px 3px 3px 1px gray;
+	}
+}

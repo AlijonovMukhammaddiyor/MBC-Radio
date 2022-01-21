@@ -1,0 +1,53 @@
+@import "../general//general";
+
+.mini__message__container {
+  .mini__podcast__container {
+    padding: 1rem;
+    height: calc(100vh - 160px);
+    overflow: scroll;
+    scroll-behavior: smooth;
+
+    @include flex($just: flex-start);
+    flex-wrap: wrap;
+    .each__podcast {
+      margin-bottom: 5px;
+      overflow: hidden;
+      cursor: pointer;
+
+      //   flex-grow: 1;
+      //   flex-shrink: 1;
+      //   flex-basis: auto;
+      @include flex($gap: 1rem, $just: flex-start);
+      width: 22.4rem;
+      min-width: 22.4rem;
+      max-width: 22.4rem;
+      &:hover {
+        img {
+          box-shadow: 0px 0px 5px 5px lightgray;
+        }
+      }
+
+      img {
+        width: 108px;
+        height: 60px;
+        object-fit: contain;
+        border: 1px solid lightgray;
+      }
+
+      .text__area {
+        .title {
+          letter-spacing: -0.5px;
+          font-size: 11px;
+          font-weight: bold;
+          color: hsl(0, 0%, 40%);
+          margin-bottom: 3px;
+        }
+
+        .subtitle {
+          font-size: 11px;
+          color: gray;
+        }
+      }
+    }
+  }
+}

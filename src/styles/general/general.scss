@@ -1,0 +1,23 @@
+*,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@mixin flex($direc: row, $just: space-between, $align: center, $gap: auto) {
+  display: flex;
+  flex-direction: $direc;
+  justify-content: $just;
+  align-items: $align;
+  gap: $gap;
+  font-family: "Roboto";
+}
+
+button {
+  cursor: pointer;
+}
+
+@mixin animation($type: ease, $time: 1s) {
+  transition: all $time $type;
+}
