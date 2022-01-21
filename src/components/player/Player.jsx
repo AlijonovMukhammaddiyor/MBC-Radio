@@ -10,7 +10,6 @@ export default function Player(props) {
   const [player, setPlayer] = useState(null);
   const [pause, setPause] = useState(true);
   const [programs, setPrograms] = useState({});
-  const [duration, setDuration] = useState(0);
   const [songs, setSongs] = useState({
     sfm: ["표준FM"],
     mfm: ["FM4U"],
@@ -23,7 +22,7 @@ export default function Player(props) {
   const minute = new Date().getMinutes();
 
   useEffect(() => {
-    const currentSongAPI = "//miniunit.imbc.com/list/somItem?rtype=jsonp";
+    const currentSongAPI = "https://miniapi.imbc.com/music/somitem?rtype=jsonp";
     function getCurrentSong() {
       function getData(url) {
         const promise = new Promise((resolve, reject) => {
@@ -38,16 +37,53 @@ export default function Player(props) {
       }
       return getData(currentSongAPI);
     }
+
     try {
-      // const data = getCurrentSong();
-      // data.then((res, err) => {
-      //   //do something here
-      //   console.log(res.SomItemList);
-      // });
+      const data = getCurrentSong();
+      data.then((res, err) => {
+        //do something here
+        let temp = songs;
+        for (let i = 0; i < res.length; i++) {
+          if (res[i].Channel === "STFM") {
+            temp["sfm"].push(res[i].SomItem);
+          } else if (res[i].Channel === "FM4U") {
+            temp["mfm"].push(res[i].SomItem);
+          } else if (res[i].Channel === "CHAM") {
+            temp["chm"].push(res[i].SomItem);
+          }
+        }
+        setSongs(temp);
+        console.log(res);
+      });
     } catch (e) {
       console.log(e);
     }
-  }, [sec]);
+
+    const Somtimer = window.setInterval(() => {
+      try {
+        const data = getCurrentSong();
+        data.then((res, err) => {
+          //do something here
+          let temp = songs;
+          for (let i = 0; i < res.length; i++) {
+            if (res[i].Channel === "STFM") {
+              temp["sfm"].push(res[i].SomItem);
+            } else if (res[i].Channel === "FM4U") {
+              temp["mfm"].push(res[i].SomItem);
+            } else if (res[i].Channel === "CHAM") {
+              temp["chm"].push(res[i].SomItem);
+            }
+          }
+          setSongs(temp);
+          console.log(res);
+        });
+      } catch (e) {
+        console.log(e);
+      }
+    }, 3000);
+    return () => window.clearInterval(Somtimer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     function getCurrentProgramName() {
@@ -121,8 +157,6 @@ export default function Player(props) {
             if (window.hls) window.hls.destroy();
             if (player) player.destroy();
             window.hls = new HLs(config);
-            const urlBroadcast =
-              radio_state.broadcast && radio_state.broadcast.EncloserURL;
 
             window.hls.loadSource(data);
             const audio = document.getElementById("audio");
@@ -264,7 +298,7 @@ export default function Player(props) {
                       radio_state.channel &&
                       songs[radio_state.channel] &&
                       songs[radio_state.channel].length > 1
-                    ? songs[radio_state.channel][1].SomItem
+                    ? songs[radio_state.channel][1]
                     : songs[radio_state.channel][0]}
                 </div>
               </>

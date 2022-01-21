@@ -10,7 +10,7 @@ import jsonp from "jsonp";
 
 // const onAirPlayAPIForPC = "//miniplay.imbc.com/HLSLive.ashx?rtype=jsonp";
 
-const onAirScheduleAPI = "//miniunit.imbc.com/Schedule?rtype=jsonp&";
+const onAirScheduleAPI = "https://miniunit.imbc.com/Schedule?rtype=jsonp&";
 // const onAirVodScheduleAPI =
 //   "//miniunit.imbc.com/schedule/BoraSchedule?rtype=jsonp";
 
